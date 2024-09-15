@@ -1,0 +1,228 @@
+<!-- HOSTED ON NETLIFY AT: https://onlinefreetts.netlify.app/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="text/css" href="https://cdn-icons-png.flaticon.com/512/7825/7825835.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>TTS Online</title>
+    <style>
+        *{
+            scrollbar-width: thin;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: gainsboro;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            background: url("https://png.pngtree.com/thumb_back/fh260/background/20210915/pngtree-aesthetic-background-pastel-image_897923.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 20px;
+            padding: 50px 100px;
+            box-shadow: 0px 0px 15px gray;
+        }
+        .containerx{
+            display: flex;
+        }
+        .containera, .containerb, .containerc{
+            background-color: white;
+            padding: 1vw 0vw;
+            margin: 50px 1.5vw;
+            box-shadow: 0px 0px 10px gray;
+            width: 25vw;
+            cursor: pointer;
+            transition: .5s;
+        }
+        .fa-lg{
+            color: darkblue;
+            font-size: 50px !important;
+            margin: 40px;
+        }
+        .context{
+            font-family: calibri;
+            font-size: 20px;
+            font-weight: bold;
+            color: darkblue;
+            margin: 10px 20px;
+        }
+        
+        .cnhv:hover{
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px gray;
+        }
+        button{
+            background-color: orange;
+            border: solid transparent;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px gray;
+            cursor: pointer;
+            transition: .5s;
+            margin: 20px 0px;
+        }
+        button:hover{
+            transform: scale(1.05);
+        }
+        .contexth{
+            font-family: calibri;
+            font-size: 30px;
+            font-weight: bold;
+            color: chocolate;
+            margin: 10px 20px;
+        }
+        
+        @media (max-width: 1200px) and (min-width: 850px){
+            .container{
+                padding: 50px 4vw;
+            }
+            .containerx{
+                
+            }
+            .cnhv{
+                margin: 30px auto;
+            }
+        }
+        @media (max-width: 850px) and (min-width: 600px){
+            .container{
+                padding: 50px 50px;
+            }
+            .containerx{
+                width: auto;
+                display: block;
+                text-align: center;
+            }
+            .cnhv{
+                width: 50vw;
+                margin: 30px auto;
+            }
+
+        }
+        @media (max-width: 600px) and (min-width: 450px){
+            
+            .container{
+                padding: 50px 4vw;
+            }
+            .containerx{
+                width: auto;
+                display: block;
+                text-align: center;
+            }
+            .cnhv{
+                width: 50vw;
+                margin: 30px auto;
+            }
+            
+        }
+        @media (max-width: 450px) and (min-width: 360px){
+            
+            .container{
+                padding: 50px 2vw;
+            }
+            .containerx{
+                width: auto;
+                display: block;
+                text-align: center;
+            }
+            .cnhv{
+                width: 60vw;
+                margin: 0px auto;
+                transform: scale(.85);
+            }
+            .cnhv:hover{
+                transform: scale(.95);
+                box-shadow: 0px 0px 15px gray;
+            }
+        }
+        @media (max-width: 360px){
+            
+            .container{
+                padding: 50px 0vw;
+            }
+            .containerx{
+                width: auto;
+                display: block;
+                text-align: center;
+            }
+            .cnhv{
+                width: 70vw;
+                margin: 20px auto;
+                transform: scale(.85);
+            }
+            .cnhv:hover{
+                transform: scale(.95);
+                box-shadow: 0px 0px 15px gray;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="ttsheader"></div>
+    <div class="container">
+    <h1><i class="fa-solid fa-sliders"></i> Utilities</h1>
+
+    <div class="containerx">
+        <div class="containera cnhv">
+            <i class="fa-solid fa-file-arrow-up fa-lg"></i>
+            <div class="contexth">Upload Text File</div>
+            <div class="context">Upload text file or insert text which is to be converted into speech inside the text area</div>
+        </div>
+        <div class="containerb cnhv">
+            <i class="fa-solid fa-language fa-lg"></i>
+            <div class="contexth">Select Language</div>
+            <div class="context">After uploading or inserting select a language from the available options</div>
+        </div>
+        <div class="containerc cnhv">
+            <i class="fa-solid fa-volume-high fa-lg"></i>
+            <div class="contexth">Select Voice</div>
+            <div class="context">After Selecting language a voice bar will appear below, select the voice from the list as per choice</div>
+        </div>
+        <div class="containerc cnhv">
+            <i class="fa-solid fa-download fa-lg"></i>
+            <div class="contexth">Extract Audio</div>
+            <div class="context">Click 'Convert to Audio' & the audio file will be downloaded automatically</div>
+        </div>
+    </div>
+    </div>
+    <div id="ttsfooter"></div>
+
+    <script>
+            function loadHTML(file, elementId) {
+                fetch(file, {
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                })
+                .then(response => response.text())
+                .then(data => {
+                    const element = document.getElementById(elementId);
+                    element.innerHTML = data;
+                    executeScripts(element);
+                })
+                .catch(error => console.error('Error loading the HTML file:', error));
+            }
+
+            // Function to execute scripts within the loaded HTML content
+            function executeScripts(element) {
+                const scripts = element.querySelectorAll('script');
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script');
+                    newScript.type = script.type || 'text/javascript';
+                    if (script.src) {
+                        newScript.src = script.src;
+                        newScript.onload = () => script.remove();
+                        document.head.appendChild(newScript);
+                    } else {
+                        newScript.textContent = script.textContent;
+                        document.head.appendChild(newScript).parentNode.removeChild(newScript);
+                    }
+                });
+            }
+            loadHTML('header.html', 'ttsheader');
+            loadHTML('footer.html', 'ttsfooter');
+    </script>
+</body>
+</html>

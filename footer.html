@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.container2{
+			background: white;
+			background: url("https://png.pngtree.com/thumb_back/fh260/background/20210717/pngtree-aesthetic-background-pink-pastel-image_746353.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			display: flex;
+			margin: 20px;
+			padding: 0px 10px;
+			box-shadow: 0px 0px 15px gray;
+		}
+		.hftexta, .hftextb{
+			display: flex;
+		} 
+		.hftexta{
+			transform: translateX(-80px);
+		}
+		.hftextb{
+			position: absolute;
+			right: 40px;
+		}
+		.ftext, .ftextb{
+			font-size: 20px;
+			font-family: euphemia;
+			margin: 20px 2vw;
+			font-weight: bold;
+		}
+		.ftextb{
+			margin: 20px 1vw;
+		}
+		.fa-bars-staggered{
+			font-size: 35px;
+			color: darkblue;
+			visibility: hidden;
+			cursor: pointer;
+			transition: .4s;
+			opacity: 0;
+			transform: translateX(-120px);
+		}
+		.fa-bars-staggered:hover{
+			transform: scale(1.05);
+		}
+		@media (max-width: 940px) and (min-width: 440px){
+			.hftexta{
+				visibility: hidden;
+			}
+			.showa{
+				margin: 50px 2.5vw;
+				visibility: visible;
+				display: block;
+			}
+			.fa-bars-staggered{
+				visibility: visible;
+				opacity: 1;
+				transform: translateX(0px);
+			}
+		}
+		@media (max-width: 440px){
+			.hftexta{
+				visibility: hidden;
+			}
+			.showa{
+				margin: 50px 8vw;
+				visibility: visible;
+				display: block;
+			}
+			.fa-bars-staggered{
+				font-size: 25px;
+				visibility: visible;
+				opacity: 1;
+				transform: translateX(0px);
+			}
+			.ftexta, .ftextb{
+				font-size: 15px;
+			}
+		}
+	</style>
+	
+</head>
+<body>
+	<section class="container2">
+		<section class="hftext0">
+			<div class="ftext"><i class="fa-solid fa-bars-staggered"></i></div>
+		</section>
+		<section class="hftexta">
+			<a style="text-decoration: none; color: darkblue;" href="about.html"><div class="ftext">About</div></a>
+			<a style="text-decoration: none; color: darkblue;" href="contacts.html"><div class="ftext">Contacts</div></a>
+			<a style="text-decoration: none; color: darkblue;" href="terms.html"><div class="ftext">Terms</div></a>
+			<a style="text-decoration: none; color: darkblue;" href="feedback.html"><div class="ftext">Feedback</div></a>
+		</section>
+		<section class="hftextb">
+			<a style="text-decoration: none; color: darkblue;" href=""><div class="ftextb"><i class="fa-brands fa-facebook fa-xl"></i></div></a>
+			<a style="text-decoration: none; color: darkblue;" href=""><div class="ftextb"><i class="fa-brands fa-x-twitter fa-xl"></i></i></div></a>
+			<a style="text-decoration: none; color: darkblue;" href=""><div class="ftextb"><i class="fa-brands fa-linkedin fa-xl"></i></div></a>
+			<a style="text-decoration: none; color: darkblue;" href=""><div class="ftextb"><i class="fa-brands fa-whatsapp fa-xl"></i></div></a>
+			<a style="text-decoration: none; color: darkblue;" href=""><div class="ftextb"><i class="fa-brands fa-youtube fa-xl"></i></div></a>
+			<a style="text-decoration: none; color: darkblue;" href=""><div class="ftextb"><i class="fa-brands fa-instagram fa-xl"></i></div></a>
+			<a style="text-decoration: none; color: darkblue;" href=""><div class="ftextb"><i class="fa-regular fa-envelope fa-xl"></i></div></a>
+			<a style="text-decoration: none; color: darkblue;" href=""><div class="ftextb"><i class="fa-brands fa-skype fa-xl"></i></div></a>
+		</section>
+
+	</section>
+	<script type="text/javascript">
+		window.onload=()=>{
+			window.scrollBy({
+				top: -10000,
+				left: 0,
+				behaviour: 'smooth'
+			});
+		};
+		document.querySelector(".fa-bars-staggered").addEventListener("click", ()=> {
+			document.querySelector(".hftexta").classList.toggle("showa");
+			document.querySelector(".container2").classList.toggle("containerex");
+
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!-- HOSTED ON NETLIFY AT: https://onlinefreetts.netlify.app/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="text/css" href="https://cdn-icons-png.flaticon.com/512/7825/7825835.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>TTS Online</title>
+    <style>
+        *{
+            scrollbar-width: thin;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: gainsboro;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            background: url("https://png.pngtree.com/thumb_back/fh260/background/20210915/pngtree-aesthetic-background-pastel-image_897923.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 20px;
+            padding: 50px 100px;
+            box-shadow: 0px 0px 15px gray;
+        }
+        .containerx{
+            background-color: white;
+            display: flex;
+            text-align: left;
+            margin: 20px 150px;
+            padding: 0;
+            box-shadow: 0px 0px 10px grey;
+            transition: .5s;
+            cursor: pointer;
+        }
+        .fa-lg{
+            color: darkorange;
+            font-size: 35px !important;
+            margin: 40px 20px;
+            transition: .4s;
+        }
+        .fa-lg:hover{
+            transform: scale(1.01);
+            color: darkblue;
+        }
+        .context, .hidea, .hideb, .hidec, .hided{
+            font-family: calibri;
+            font-size: 20px;
+            font-weight: bold;
+            color: darkblue;
+            margin: 5px 50px;
+            visibility: collapse;
+            transition: .2s;
+            height: 0;
+            opacity: 0;
+            padding: 0;
+        }
+        .showtexta, .showtextb, .showtextc, .showtextd{
+            visibility: visible;
+            height: 50px;
+            opacity: 1;
+            margin-bottom: 40px
+        }
+        .cnhv:hover{
+            transform: scale(1.01);
+            box-shadow: 0px 0px 15px gray;
+        }
+        button{
+            background-color: orange;
+            border: solid transparent;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px gray;
+            cursor: pointer;
+            transition: .5s;
+        }
+        button:hover{
+            transform: scale(1.05);
+        }
+        .contexth{
+            font-family: calibri;
+            font-size: 30px;
+            font-weight: bold;
+            color: chocolate;
+            margin: 5px 0px;
+        }
+        
+        @media (max-width: 1200px) and (min-width: 960px){
+            .containerx{
+                margin: 20px 50px;
+            }
+            
+        }
+        @media (max-width: 960px) and (min-width: 640px){
+            .container{
+                padding: 50px 30px;
+            }
+            .containerx{
+                margin: 20px auto;
+            }
+            .showtexta, .showtextb, .showtextc, .showtextd{
+                height: 60px;
+                font-size: 15px;
+            }
+            .contexth{
+                font-size: 25px;
+            }
+            .fa-lg{
+                margin: 35px 15px;
+            }
+        }
+        @media (max-width: 640px){
+            
+            .container{
+                padding: 50px 25px;
+            }
+            .containerx{
+                margin: 20px auto;
+            }
+            .showtexta, .showtextb, .showtextc, .showtextd{
+                height: 80px;
+                font-size: 15px;
+            }
+            .contexth{
+                font-size: 20px;
+            }
+            .fa-lg{
+                margin: 30px 5px;
+                font-size: 25px !important;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="ttsheader"></div>
+    <div class="container">
+    <h1><i class="fa-solid fa-clipboard-question"></i> Frequently Asked Questions</h1></h1>
+    <div class="containerx cnhv">
+        <div class="contexth">
+            <i class="fa-solid fa-circle-plus fa-lg plusa"></i> What is T T S Online?
+            <div class="context hidea">
+                 T T S Online is a free online tool for providing text to speech service to the user via voicerss and you can play or download audio files.
+            </div>
+        </div>
+    </div>
+    <div class="containerx cnhv">
+        <div class="contexth">
+            <i class="fa-solid fa-circle-plus fa-lg plusb"></i> Can I use T T S Online for commercial use?
+            <div class="context hideb">
+                 Yes, you have 100% copyright ownership of the audio files and can use them for any purpose, including commercial use, as long as it complies with local laws. 
+            </div>
+        </div>
+    </div>
+    <div class="containerx cnhv">
+        <div class="contexth">
+            <i class="fa-solid fa-circle-plus fa-lg plusc"></i> How does it work?
+            <div class="context hidec">
+                 First enter the text or upload file, then select the language and voice type, and finally do the conversion. Visit Utilities page for deatils. 
+            </div>
+        </div>
+    </div>
+    <div class="containerx cnhv">
+        <div class="contexth">
+            <i class="fa-solid fa-circle-plus fa-lg plusd"></i> Is text-to-speech free to use?
+            <div class="context hided">
+                 Yes, we will offer a permanent free version for users, reserving the right to make adjustments to relevant policies in the future. 
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="ttsfooter"></div>
+
+    <script>
+            function loadHTML(file, elementId) {
+                fetch(file, {
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                })
+                .then(response => response.text())
+                .then(data => {
+                    const element = document.getElementById(elementId);
+                    element.innerHTML = data;
+                    executeScripts(element);
+                })
+                .catch(error => console.error('Error loading the HTML file:', error));
+            }
+
+            // Function to execute scripts within the loaded HTML content
+            function executeScripts(element) {
+                const scripts = element.querySelectorAll('script');
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script');
+                    newScript.type = script.type || 'text/javascript';
+                    if (script.src) {
+                        newScript.src = script.src;
+                        newScript.onload = () => script.remove();
+                        document.head.appendChild(newScript);
+                    } else {
+                        newScript.textContent = script.textContent;
+                        document.head.appendChild(newScript).parentNode.removeChild(newScript);
+                    }
+                });
+            }
+            loadHTML('header.html', 'ttsheader');
+            loadHTML('footer.html', 'ttsfooter');
+    </script>
+    <script type="text/javascript">
+        let a=b=c=d=0
+        document.querySelector(".plusa").addEventListener("click", ()=>{
+            a++;
+            document.querySelector(".hidea").classList.toggle("showtexta");
+            document.querySelector(".plusa").style.transform="rotate("+a*45+"deg)";
+        });
+        document.querySelector(".plusb").addEventListener("click", ()=>{
+            b++;
+            document.querySelector(".hideb").classList.toggle("showtexta");
+            document.querySelector(".plusb").style.transform="rotate("+b*45+"deg)";
+        });
+        document.querySelector(".plusc").addEventListener("click", ()=>{
+            c++;
+            document.querySelector(".hidec").classList.toggle("showtexta");
+            document.querySelector(".plusc").style.transform="rotate("+c*45+"deg)";
+        });
+        document.querySelector(".plusd").addEventListener("click", ()=>{
+            d++;
+            document.querySelector(".hided").classList.toggle("showtexta");
+            document.querySelector(".plusd").style.transform="rotate("+d*45+"deg)";
+        });
+    </script>
+</body>
+</html>

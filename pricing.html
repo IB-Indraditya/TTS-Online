@@ -1,0 +1,234 @@
+<!-- HOSTED ON NETLIFY AT: https://onlinefreetts.netlify.app/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="text/css" href="https://cdn-icons-png.flaticon.com/512/7825/7825835.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>TTS Online</title>
+    <style>
+        *{
+            scrollbar-width: thin;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: gainsboro;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            background: url("https://png.pngtree.com/thumb_back/fh260/background/20210915/pngtree-aesthetic-background-pastel-image_897923.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 20px;
+            padding: 50px 14vw;
+            box-shadow: 0px 0px 15px gray;
+        }
+        .containerx{
+            width: 100%;
+            display: flex;
+            text-align: center;
+        }
+        .containera, .containerb, .containerc{
+            background-color: white;
+            padding: 1.5vw 0vw;
+            margin: 50px 2vw;
+            box-shadow: 0px 0px 10px gray;
+            width: 300px;
+            cursor: pointer;
+            transition: .5s;
+        }
+        .context{
+            font-family: calibri;
+            font-size: 20px;
+            font-weight: bold;
+            color: darkblue;
+            margin: 10px 20px;
+        }
+        
+        .cnhv:hover{
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px gray;
+        }
+        button{
+            background-color: orange;
+            border: solid transparent;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px gray;
+            cursor: pointer;
+            transition: .5s;
+            margin: 20px 0px;
+        }
+        button:hover{
+            transform: scale(1.05);
+        }
+        .contexth{
+            font-family: calibri;
+            font-size: 30px;
+            font-weight: bold;
+            color: chocolate;
+            margin: 10px 20px;
+        }
+        
+        @media (max-width: 1200px) and (min-width: 850px){
+            .container{
+                padding: 50px 4vw;
+            }
+            .containerx{
+                
+            }
+            .cnhv{
+                margin: 30px 2vw;
+            }
+        }
+        @media (max-width: 850px) and (min-width: 600px){
+            .container{
+                padding: 50px 50px;
+            }
+            .containerx{
+                width: auto;
+                display: block;
+                text-align: center;
+            }
+            .cnhv{
+                margin: 30px auto;
+            }
+
+        }
+        @media (max-width: 600px) and (min-width: 450px){
+            
+            .container{
+                padding: 50px 4vw;
+            }
+            .containerx{
+                width: auto;
+                display: block;
+                text-align: center;
+            }
+            .cnhv{
+                width: 60vw;
+                margin: 30px auto;
+            }
+            
+        }
+        @media (max-width: 450px) and (min-width: 360px){
+            
+            .container{
+                padding: 50px 2vw;
+            }
+            .containerx{
+                width: auto;
+                display: block;
+                text-align: center;
+            }
+            .cnhv{
+                width: 70vw;
+                margin: 0px auto;
+                transform: scale(.85);
+            }
+            .cnhv:hover{
+                transform: scale(.95);
+                box-shadow: 0px 0px 15px gray;
+            }
+        }
+        @media (max-width: 360px){
+            
+            .container{
+                padding: 50px 0vw;
+            }
+            .containerx{
+                width: auto;
+                display: block;
+                text-align: center;
+            }
+            .cnhv{
+                width: 70vw;
+                margin: 20px auto;
+                transform: scale(.85);
+            }
+            .cnhv:hover{
+                transform: scale(.95);
+                box-shadow: 0px 0px 15px gray;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="ttsheader"></div>
+    <div class="container">
+    <h1><i class="fa-solid fa-hand-holding-dollar"></i> Pricing</h1>
+    <div class="containerx">
+        <div class="containera cnhv">
+            <div class="contexth">Plan Alpha</div>
+            <div class="context">Language: 10+</div>
+            <div class="context">Voices: 30+</div>
+            <div class="context">Limit: 1200 characters</div>
+            <div class="contexth">Popular</div>
+            <div class="context" style="text-decoration: line-through;">Price: $ 5</div>
+            <div class="contexth">Free</div>
+            <button><div class="context">Get started</div></button>
+        </div>
+        <div class="containerb cnhv">
+            <div class="contexth">Plan Beta</div>
+            <div class="context">Language: 30+</div>
+            <div class="context">Voices: 50+</div>
+            <div class="context">Limit: 8000 characters</div>
+            <div class="contexth">Cost Friendly</div>
+            <div class="context" style="text-decoration: line-through;">Price: $ 35</div>
+            <div class="contexth">Price: $ 17</div>
+            <button><div class="context">Get started</div></button>
+        </div>
+        <div class="containerc cnhv">
+            <div class="contexth">Plan Delta</div>
+            <div class="context">Language: 100+</div>
+            <div class="context">Voices: 300+</div>
+            <div class="context">Limit: No Character Limit</div>
+            <div class="contexth">Professional</div>
+            <div class="context" style="text-decoration: line-through;">Price: $ 149</div>
+            <div class="contexth">Price: $ 49</div>
+            <button><div class="context">Get started</div></button>
+        </div>
+    </div>
+    </div>
+    <div id="ttsfooter"></div>
+
+    <script>
+            function loadHTML(file, elementId) {
+                fetch(file, {
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                })
+                .then(response => response.text())
+                .then(data => {
+                    const element = document.getElementById(elementId);
+                    element.innerHTML = data;
+                    executeScripts(element);
+                })
+                .catch(error => console.error('Error loading the HTML file:', error));
+            }
+
+            // Function to execute scripts within the loaded HTML content
+            function executeScripts(element) {
+                const scripts = element.querySelectorAll('script');
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script');
+                    newScript.type = script.type || 'text/javascript';
+                    if (script.src) {
+                        newScript.src = script.src;
+                        newScript.onload = () => script.remove();
+                        document.head.appendChild(newScript);
+                    } else {
+                        newScript.textContent = script.textContent;
+                        document.head.appendChild(newScript).parentNode.removeChild(newScript);
+                    }
+                });
+            }
+            loadHTML('header.html', 'ttsheader');
+            loadHTML('footer.html', 'ttsfooter');
+    </script>
+</body>
+</html>

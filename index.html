@@ -1,0 +1,514 @@
+<!-- HOSTED ON NETLIFY AT: https://onlinefreetts.netlify.app/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="text/css" href="https://cdn-icons-png.flaticon.com/512/7825/7825835.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>TTS Online</title>
+    <style>
+        *{
+            scrollbar-width: thin;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: gainsboro;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            background: url("https://png.pngtree.com/thumb_back/fh260/background/20210915/pngtree-aesthetic-background-pastel-image_897923.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 20px;
+            padding: 50px;
+            box-shadow: 0px 0px 15px gray;
+        }
+        
+        .filecontain{
+           margin: 20px 32vw;
+            padding: 15px 5px;
+            border-radius: 15px;
+            color: gainsboro;
+            font-family: gulim;
+            font-size: 30px;
+            font-weight: bold;
+            background-color: darkblue;
+            cursor: pointer;
+            transition: .5s;
+            box-shadow: 5px 5px 10px gray;
+        }
+        .filecontain label{
+            text-align: center;
+            cursor: pointer;
+        }
+        .filecontain:hover{
+            background-color: white;
+            color: darkblue;
+            border: solid 2px darkblue;
+            box-shadow: 5px 5px 5px gray;
+        }
+        #fileInput{
+            display: none;
+        }
+        #fileNameDisplay{
+            font-size: 15px;
+            font-family: monospace;
+            font-style: oblique;
+            color: darkblue;
+            margin: 10px 20vw;
+            text-align: left;
+        }
+        .textcontain{
+            margin: 50px 0px;
+        }
+        textarea {
+           width: 80vw;
+           height: 400px;
+           border: solid 5px transparent;
+           resize: none;
+           font-size: 20px;
+           background-color: gainsboro;
+           background: url("https://marketplace.canva.com/EAEthkBVLfQ/1/0/1600w/canva-blush-wave-desktop-wallpaper-drvq3zaYl2E.jpg");
+           background-size: cover;
+           background-repeat: no-repeat;
+           color: darkblue;
+           box-shadow: 0px 0px 10px gray;
+        }
+        select, input[type="text"], input[type="file"]  {
+            width: 50vw;
+            padding: 10px;
+            margin: 10px 0px;
+            border-radius: 5px;
+            border: 1px solid darkblue;
+            color: darkblue;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 5px 5px 10px gray;
+        }
+        #languageSelect, #voiceSelect{
+            font-size: 20px;
+            background-color: darkblue;
+            color: white;
+            margin: 10px;
+        }
+        textarea:focus {
+            outline: none;
+        }
+        input:focus{
+            outline: none;
+        }
+        ::selection {
+            background-color: darkcyan;
+            color: white;
+        }
+        .speedcontain{
+            margin: 50px;
+            font-size: 20px;
+            font-family: dotum;
+            font-weight: bold;
+            color: darkblue;
+        }
+        .buttoncontain{
+            margin: 50px;
+            text-align: center;
+        }
+        button {
+            background-color: darkblue;
+            color: white;
+            padding: 1vw 1vw;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: .5s;
+            width: 20vw;
+            font-size: 20px;
+            box-shadow: 5px 5px 10px gray;
+        }
+        .audiocontain{
+            text-align: center;
+        }
+        #audioPlayer {
+           background-color: darkblue;
+            padding: 3px;
+            border-radius: 40px;
+        }
+        button:hover {
+            background-color: white;
+            color: darkblue;
+            border: solid 2px darkblue;
+            transform: scale(1.05);
+        }
+        #voiceContainer {
+            display: none; /* Hidden by default */
+        }
+        .wc {
+            font-family: dotum;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0px;
+            right: 200px;
+            margin-top: -30px;
+            padding: 10px 20px;
+            background-color: darkblue;
+            position: absolute;
+            color: white;
+            border-radius: 5px;
+            transition: .5s;
+            box-shadow: 5px 5px 10px gray;
+        }
+        .wc:hover {
+            background-color: transparent;
+            cursor: no-drop;
+            color: transparent;
+        }
+        @media (max-width: 900px) and (min-width: 600px){
+            .filecontain{
+                font-size: 25px;
+                margin: 20px 30vw;
+            }
+
+        }
+        @media (max-width: 600px) and (min-width: 400px){
+            h1{
+                font-size: 40px;
+            }
+            .filecontain{
+                font-size: 23px;
+                margin: 20px 20vw;
+            }
+             .wc{
+                right: 100px;
+                transform: scale(.7);
+            }
+            textarea{
+                width: 60vw;
+            }
+
+        }
+        @media (max-width: 400px){
+            h1{
+                font-size: 40px;
+            }
+            .filecontain{
+                font-size: 20px;
+                margin: 20px 20vw;
+            }
+            .container{
+                padding: 50px 0px;
+                margin: 0;
+            }
+            .wc{
+                right: 100px;
+                transform: scale(.7);
+            }
+            button{
+                width: 35vw;
+                font-size: 15px;
+                padding: 10px 0px;
+            }
+            #languageSelect, #voiceSelect{
+                font-size: 4vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="ttsheader"></div>
+    <div class="container">
+        <h1><i class="fa-regular fa-file-audio"></i> T T S Online</h1>
+        
+        <!-- File input for text files -->
+        <section class="filecontain">
+        <label for="fileInput">Upload File &nbsp<i class="fa-solid fa-file-lines"></i></label>
+        <input type="file" id="fileInput" accept=".txt">
+        </section>
+        <p id="fileNameDisplay"></p>
+        <!-- Textarea for user input -->
+        <section class="textcontain">
+        <textarea id="textInput" maxlength="1200" placeholder="Enter your text here..."></textarea>
+        <p class="wc">character=0</p>
+        </section>
+
+        <!-- Language selection -->
+        <section class="languagecontain">
+        <label for="languageSelect"></label>
+        <select id="languageSelect" onchange="updateVoiceOptions()">
+            <option value="" selected>Select Language</option>
+            <option value="en-US">English (US)</option>
+            <option value="en-GB">English (UK)</option>
+            <option value="en-IN">English (India)</option>
+            <option value="es-ES">Spanish</option>
+            <option value="fr-FR">French</option>
+            <option value="de-DE">German</option>
+            <option value="it-IT">Italian</option>
+            <option value="hi-IN">Hindi</option>
+            <option value="ta-IN">Tamil</option>
+            <option value="ar-EG">Arabic</option>
+            <option value="ja-JP">Japanese</option>
+            <option value="ko-KR">Korean</option>
+            <option value="zh-CN">Chinese (Simplified)</option>
+            <option value="zh-TW">Chinese (Traditional)</option>
+            <option value="pt-PT">Portuguese (Portugal)</option>
+            <option value="pt-BR">Portuguese (Brazil)</option>
+            <option value="ru-RU">Russian</option>
+            <option value="tr-TR">Turkish</option>
+        </select>
+        </section>
+
+        <!-- Voice selection -->
+        <div id="voiceContainer">
+            <label for="voiceSelect"></label>
+            <select id="voiceSelect">
+                <!-- Options will be populated dynamically -->
+            </select>
+        </div>
+        <section class="speedcontain">
+        <!-- Speed control -->
+        <label for="speedControl">Speed (-10 <-> 10)</label>
+        <br>
+        <span id="speedValue"></span>
+        <!-- <input type="range" id="speedControl" min="-10" max="10" step=".5" value="0"> -->
+        <input type="text" name="" id="speedControl" value="0">
+        </section>
+        <!-- Pitch control -->
+        <label for="pitchControl"></label>
+        <span id="pitchValue"></span>
+        <input type="range" id="pitchControl" min="-10" max="10" step="1" value="0" disabled>
+        <section class="buttoncontain">
+        <!-- Convert button -->
+        <button onclick="convertTextToAudio()">Convert to Audio</button>
+        </section>
+        <br>
+        <!-- Audio player -->
+        <section class="audiocontain">
+        <audio id="audioPlayer" controls style="display:none;"></audio>
+        </section>
+        <!-- <a href="Bootstrap.pdf">Click to give permissions</a> -->
+        
+    </div>
+    <div id="ttsabout"></div>
+    <div id="ttsuse"></div>
+    <div id="ttsdoc"></div>
+    <div id="ttsfeat"></div>
+    <div id="ttsterms"></div>
+    <div id="ttsfooter"></div>
+
+    <script>
+        const voices = {
+            'en-US': ['Select Voice', 'Linda', 'John'],
+            'en-GB': ['Select Voice', 'Alice', 'Nancy', 'Lily', 'Harry'],
+            'en-IN': ['Select Voice', 'Eka', 'Ajit'],
+            'es-ES': ['Select Voice', 'Luna', 'Diego', 'Sofia', 'Camila'],
+            'fr-FR': ['Select Voice', 'Axel', 'Iva', 'Bette', 'Zola'],
+            'de-DE': ['Select Voice', 'Hanna', 'Jonas', 'Lina', 'Lukas'],
+            'it-IT': ['Select Voice', 'Pietro', 'Bria'],
+            'hi-IN': ['Select Voice', 'Puja', 'Kabir'],
+            'ta-IN': ['Select Voice', 'Sai'],
+            'ar-EG': ['Select Voice', 'Oda'],
+            'ja-JP': ['Select Voice', 'Hina', 'Airi', 'Akira', 'Fumi'],
+            'ko-KR': ['Select Voice', 'Nari'],
+            'zh-CN': ['Select Voice', 'Xia', 'Chen'],
+            'zh-TW': ['Select Voice', 'Akemi', 'Lee', 'Lin'],
+            'pt-PT': ['Select Voice', 'Leonor'],
+            'pt-BR': ['Select Voice', 'Marcia', 'Dinis'],
+            'ru-RU': ['Select Voice', 'Olga', 'Peter'],
+            'tr-TR': ['Select Voice', 'Omer']
+        };
+
+        function updateVoiceOptions() {
+            const languageSelect = document.getElementById('languageSelect');
+            const voiceSelect = document.getElementById('voiceSelect');
+            const voiceContainer = document.getElementById('voiceContainer');
+            const selectedLanguage = languageSelect.value;
+
+            // Clear existing options
+            voiceSelect.innerHTML = '';
+
+            if (selectedLanguage) {
+                const availableVoices = voices[selectedLanguage] || [];
+                if (availableVoices.length > 0) {
+                    voiceContainer.style.display = 'block';
+                    availableVoices.forEach(voice => {
+                        const option = document.createElement('option');
+                        
+                        option.value = voice;
+                        option.textContent = voice;
+                        voiceSelect.appendChild(option);
+                    });
+                } else {
+                    voiceContainer.style.display = 'none';
+                }
+            } else {
+                voiceContainer.style.display = 'none';
+            }
+        }
+
+        // Handle text file upload
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file && file.type === 'text/plain') {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const text = e.target.result.slice(0, 1200);
+                    document.getElementById('textInput').value = text;
+                };
+                reader.readAsText(file);
+            } else {
+                alert('Please upload a valid .txt file.');
+            }
+        });
+
+        // Update speed value display
+        // document.getElementById('speedControl').addEventListener('input', function() {
+        //     document.getElementById('speedValue').textContent = this.value;
+        // });
+
+        // Update pitch value display
+        document.getElementById('pitchControl').addEventListener('input', function() {
+            document.getElementById('pitchValue').textContent = this.value;
+        });
+        const fileInput = document.getElementById('fileInput');
+
+        // Add an event listener for when the file input changes
+        fileInput.addEventListener('change', function() {
+            // Get the first file from the file input
+            const file = fileInput.files[0];
+            
+            // Check if a file is selected
+            if (file) {
+                // Display the file name in the paragraph element
+                document.getElementById('fileNameDisplay').textContent = `Uploaded file: ${file.name}`;
+                 const reader = new FileReader();
+
+                // When the file is fully loaded
+                reader.onload = function(e) {
+                    const fileContent = e.target.result;
+                    const fileLength = fileContent.length;
+                    document.querySelector(".wc").textContent = "character= "+fileLength;
+                };
+                reader.readAsText(file);
+                
+            } else {
+                document.getElementById('fileNameDisplay').textContent = 'No file selected.';
+            }
+        });
+
+        // Convert text to audio
+        function convertTextToAudio() {
+            const apiKey = 'e011c2dc1c5e41afbc94343c640140ba'; // Replace with your Voice RSS API key
+            const text = document.getElementById('textInput').value;
+            const language = document.getElementById('languageSelect').value;
+            const voice = document.getElementById('voiceSelect').value;
+            const speed = document.getElementById('speedControl').value;
+            const pitch = document.getElementById('pitchControl').value;
+
+            // API URL with pitch, speed parameters
+            const url = `https://api.voicerss.org/?key=${apiKey}&hl=${language}&v=${voice}&src=${encodeURIComponent(text)}&r=${speed}&p=${pitch}&c=mp3`;
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok.');
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    const audioUrl = URL.createObjectURL(blob);
+                    const audioPlayer = document.getElementById('audioPlayer');
+                    audioPlayer.style.display = 'initial';
+                    audioPlayer.style.transform = 'scale(1.1)';
+                    audioPlayer.src = audioUrl;
+                    audioPlayer.play();
+
+                    // Automatic download
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = audioUrl;
+                    downloadLink.download = 'tts-audio.mp3';  // Set the file name for download
+                    downloadLink.click(); // Automatically trigger the downloads
+                        })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+                const textarea = document.getElementById('textInput');
+                document.querySelector(".wc").textContent ='character= ' +textarea.value.length;
+        }
+
+        const textarea = document.getElementById('textInput');
+        // Function to handle input events
+        function handleKeydown(event) {
+            const isBackspace = event.key === 'Backspace';
+            const isCtrlA = event.ctrlKey && event.key === 'a';
+            const isCtrlZ = event.ctrlKey && event.key === 'z';
+            const isArrowKey = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key);
+
+            if (textarea.value.length >= 1200 && !(isBackspace || isCtrlA || isCtrlZ || isArrowKey)) {
+                event.preventDefault();
+            }
+        }
+
+        // Attach keydown event listener to the textarea
+        textarea.addEventListener('keydown', handleKeydown);
+
+        // Ensure textarea behavior updates dynamically
+        textarea.addEventListener('input', () => {
+            document.querySelector(".wc").textContent = 'character= '+textarea.value.length;
+
+            if (textarea.value.length < 1200) {
+                // Remove the keydown event listener if length is less than 500
+                textarea.removeEventListener('keydown', handleKeydown);
+                textarea.addEventListener('keydown', handleKeydown);
+            }
+            if (textarea.value.length > 1400) {
+                // Remove the keydown event listener if length is less than 500
+                alert("too many characters; page has to be reloaded...");
+                location.reload();
+            }
+        });
+
+    </script>
+    <script>
+            function loadHTML(file, elementId) {
+                fetch(file, {
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                })
+                .then(response => response.text())
+                .then(data => {
+                    const element = document.getElementById(elementId);
+                    element.innerHTML = data;
+                    executeScripts(element);
+                })
+                .catch(error => console.error('Error loading the HTML file:', error));
+            }
+
+            // Function to execute scripts within the loaded HTML content
+            function executeScripts(element) {
+                const scripts = element.querySelectorAll('script');
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script');
+                    newScript.type = script.type || 'text/javascript';
+                    if (script.src) {
+                        newScript.src = script.src;
+                        newScript.onload = () => script.remove();
+                        document.head.appendChild(newScript);
+                    } else {
+                        newScript.textContent = script.textContent;
+                        document.head.appendChild(newScript).parentNode.removeChild(newScript);
+                    }
+                });
+            }
+            loadHTML('header.html', 'ttsheader');
+            loadHTML('footer.html', 'ttsfooter');
+            loadHTML('pageforindex/about.html', 'ttsabout');
+            loadHTML('pageforindex/utilities.html', 'ttsuse');
+            loadHTML('pageforindex/features.html', 'ttsfeat');
+            loadHTML('pageforindex/terms.html', 'ttsfeat');
+            loadHTML('pageforindex/docs.html', 'ttsdoc');
+
+    </script>
+</body>
+</html>

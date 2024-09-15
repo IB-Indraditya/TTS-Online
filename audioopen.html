@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Audio in New Tab</title>
+</head>
+<body>
+
+    <!-- Audio Player -->
+    <audio id="audioPlayer" controls controlsList="nodownload" src="your-audio-file.mp3"></audio>
+
+    <script>
+        const apiKey = 'e011c2dc1c5e41afbc94343c640140ba';
+    document.getElementById('audioPlayer').addEventListener('play', function() {
+        var audioSrc = this.src;
+        
+        // Create an anchor element
+        var downloadLink = document.createElement('a');
+        downloadLink.href = audioSrc;
+        downloadLink.download = 'your-audio-file.mp3'; // The name of the file to be downloaded
+
+        // Trigger the download
+        downloadLink.click();
+    });
+    </script>
+
+
+</body>
+</html>
